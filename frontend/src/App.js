@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [files, setFiles] = useState(null);
@@ -27,10 +28,14 @@ function App() {
   };
 
   return (
-    <div style={{padding: 20}}>
-      <h1>Объединить PDF</h1>
-      <input type="file" multiple onChange={handleFiles} />
-      <button onClick={handleSubmit}>Объединить</button>
+    <div className="app">
+      <h1>Объединение PDF</h1>
+      <div className="upload-area">
+        <input type="file" multiple onChange={handleFiles} />
+      </div>
+      <button className="merge-btn" onClick={handleSubmit}>
+        Объединить
+      </button>
     </div>
   );
 }
