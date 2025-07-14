@@ -1,46 +1,50 @@
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f5f2e7;
+  margin: 0;
+  background-color: #fdf7f0;
   color: #333;
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-h1 {
-  margin-bottom: 20px;
-}
-
-.upload-area {
-  background-color: #ede7dc;
-  border: 2px dashed #d8c3a5;
-  padding: 40px;
   text-align: center;
-  border-radius: 8px;
-  margin-bottom: 20px;
 }
 
-.upload-area input {
-  font-size: 16px;
+.header {
+  background: #f5e8d9;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
 }
 
-.merge-btn {
-  background-color: #d8c3a5;
-  border: none;
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 18px;
+.nav-btn {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  background: #e0d4c1;
   border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.2s;
 }
 
-.merge-btn:hover {
-  background-color: #cbb99c;
+.nav-btn:hover {
+  background: #d3c2af;
+}
+
+.page {
+  margin-top: 20px;
+}
+
+button.action-btn {
+  margin-top: 10px;
+  background: #e0d4c1;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.action-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }

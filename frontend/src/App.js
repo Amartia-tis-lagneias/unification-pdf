@@ -1,42 +1,28 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import MergePage from "./pages/MergePage";
+import CompressPage from "./pages/CompressPage";
+import SplitPage from "./pages/SplitPage";
 import "./App.css";
 
 function App() {
-  const [files, setFiles] = useState(null);
-
-  const handleFiles = (e) => {
-    setFiles(e.target.files);
-  };
-
-  const handleSubmit = async () => {
-    const formData = new FormData();
-    for (let file of files) {
-      formData.append("files", file);
-    }
-
-    const res = await fetch("http://localhost:5000/merge", {
-      method: "POST",
-      body: formData,
-    });
-
-    const blob = await res.blob();
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "merged.pdf";
-    a.click();
-  };
-
   return (
-    <div className="app">
-      <h1>Объединение PDF</h1>
-      <div className="upload-area">
-        <input type="file" multiple onChange={handleFiles} />
+    <Router>
+      <div className="app">
+        <header className="header">
+          <Link to="/merge" className="nav-btn">Объединить</Link>
+          <Link to="/compress" className="nav-btn">Сжать</Link>
+          <Link to="/split" className="nav-btn">Разделить</Link>
+        </header>
+
+        <main>
+          <Routes>
+            <Route path="/merge" element={<MergePage />} />
+            <Route path="/compress" element={<CompressPage />} />
+            <Route path="/split" element={<SplitPage />} />
+          </Routes>
+        </main>
       </div>
-      <button className="merge-btn" onClick={handleSubmit}>
-        Объединить
-      </button>
-    </div>
+    </Router>
   );
 }
 
